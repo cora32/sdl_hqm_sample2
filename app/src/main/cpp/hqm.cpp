@@ -97,7 +97,7 @@ void hqm_log(char *event_name, char *event_data) {
 }
 
 /**
- * Asynchronously retrieves predicted user groups.
+ * Synchronously retrieves predicted user groups.
  *
  *   // Get user groups.
  *   UserGroupData hqm_group_data = hqm_get_user_groups();
