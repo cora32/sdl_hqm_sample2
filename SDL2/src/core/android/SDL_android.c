@@ -154,7 +154,7 @@ JNIEXPORT void JNICALL SDL_Android_Init(JNIEnv* mEnv, jclass cls)
 }
 
 /* Drop file */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeDropFile(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeDropFile(
                                     JNIEnv* env, jclass jcls,
                                     jstring filename)
 {
@@ -165,7 +165,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeDropFil
 }
 
 /* Resize */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeResize(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeResize(
                                     JNIEnv* env, jclass jcls,
                                     jint width, jint height, jint format, jfloat rate)
 {
@@ -173,7 +173,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeResize(
 }
 
 /* Paddown */
-JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_onNativePadDown(
+JNIEXPORT jint JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativePadDown(
                                     JNIEnv* env, jclass jcls,
                                     jint device_id, jint keycode)
 {
@@ -181,7 +181,7 @@ JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_onNativePadDown
 }
 
 /* Padup */
-JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_onNativePadUp(
+JNIEXPORT jint JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativePadUp(
                                    JNIEnv* env, jclass jcls,
                                    jint device_id, jint keycode)
 {
@@ -189,7 +189,7 @@ JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_onNativePadUp(
 }
 
 /* Joy */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeJoy(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeJoy(
                                     JNIEnv* env, jclass jcls,
                                     jint device_id, jint axis, jfloat value)
 {
@@ -197,7 +197,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeJoy(
 }
 
 /* POV Hat */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeHat(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeHat(
                                     JNIEnv* env, jclass jcls,
                                     jint device_id, jint hat_id, jint x, jint y)
 {
@@ -205,7 +205,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeHat(
 }
 
 
-JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_nativeAddJoystick(
+JNIEXPORT jint JNICALL Java_io_humanteq_test_1package_SDLActivity_nativeAddJoystick(
     JNIEnv* env, jclass jcls,
     jint device_id, jstring device_name, jint is_accelerometer, 
     jint nbuttons, jint naxes, jint nhats, jint nballs)
@@ -220,7 +220,7 @@ JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_nativeAddJoysti
     return retval;
 }
 
-JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_nativeRemoveJoystick(
+JNIEXPORT jint JNICALL Java_io_humanteq_test_1package_SDLActivity_nativeRemoveJoystick(
     JNIEnv* env, jclass jcls, jint device_id)
 {
     return Android_RemoveJoystick(device_id);
@@ -228,7 +228,7 @@ JNIEXPORT jint JNICALL Java_io_humanteq_test_package_SDLActivity_nativeRemoveJoy
 
 
 /* Surface Created */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeSurfaceChanged(JNIEnv* env, jclass jcls)
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeSurfaceChanged(JNIEnv* env, jclass jcls)
 {
     SDL_WindowData *data;
     SDL_VideoDevice *_this;
@@ -254,7 +254,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeSurface
 }
 
 /* Surface Destroyed */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeSurfaceDestroyed(JNIEnv* env, jclass jcls)
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeSurfaceDestroyed(JNIEnv* env, jclass jcls)
 {
     /* We have to clear the current context and destroy the egl surface here
      * Otherwise there's BAD_NATIVE_WINDOW errors coming from eglCreateWindowSurface on resume
@@ -281,21 +281,21 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeSurface
 }
 
 /* Keydown */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeKeyDown(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeKeyDown(
                                     JNIEnv* env, jclass jcls, jint keycode)
 {
     Android_OnKeyDown(keycode);
 }
 
 /* Keyup */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeKeyUp(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeKeyUp(
                                     JNIEnv* env, jclass jcls, jint keycode)
 {
     Android_OnKeyUp(keycode);
 }
 
 /* Keyboard Focus Lost */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeKeyboardFocusLost(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeKeyboardFocusLost(
                                     JNIEnv* env, jclass jcls)
 {
     /* Calling SDL_StopTextInput will take care of hiding the keyboard and cleaning up the DummyText widget */
@@ -304,7 +304,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeKeyboar
 
 
 /* Touch */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeTouch(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeTouch(
                                     JNIEnv* env, jclass jcls,
                                     jint touch_device_id_in, jint pointer_finger_id_in,
                                     jint action, jfloat x, jfloat y, jfloat p)
@@ -313,7 +313,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeTouch(
 }
 
 /* Mouse */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeMouse(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeMouse(
                                     JNIEnv* env, jclass jcls,
                                     jint button, jint action, jfloat x, jfloat y)
 {
@@ -321,7 +321,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeMouse(
 }
 
 /* Accelerometer */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeAccel(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_onNativeAccel(
                                     JNIEnv* env, jclass jcls,
                                     jfloat x, jfloat y, jfloat z)
 {
@@ -332,14 +332,14 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_onNativeAccel(
 }
 
 /* Low memory */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativeLowMemory(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_nativeLowMemory(
                                     JNIEnv* env, jclass cls)
 {
     SDL_SendAppEvent(SDL_APP_LOWMEMORY);
 }
 
 /* Quit */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativeQuit(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_nativeQuit(
                                     JNIEnv* env, jclass cls)
 {
     /* Discard previous events. The user should have handled state storage
@@ -355,7 +355,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativeQuit(
 }
 
 /* Pause */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativePause(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_nativePause(
                                     JNIEnv* env, jclass cls)
 {
     __android_log_print(ANDROID_LOG_VERBOSE, "SDL", "nativePause()");
@@ -372,7 +372,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativePause(
 }
 
 /* Resume */
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativeResume(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLActivity_nativeResume(
                                     JNIEnv* env, jclass cls)
 {
     __android_log_print(ANDROID_LOG_VERBOSE, "SDL", "nativeResume()");
@@ -390,7 +390,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLActivity_nativeResume(
     }
 }
 
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLInputConnection_nativeCommitText(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLInputConnection_nativeCommitText(
                                     JNIEnv* env, jclass cls,
                                     jstring text, jint newCursorPosition)
 {
@@ -401,7 +401,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLInputConnection_nativeCo
     (*env)->ReleaseStringUTFChars(env, text, utftext);
 }
 
-JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLInputConnection_nativeSetComposingText(
+JNIEXPORT void JNICALL Java_io_humanteq_test_1package_SDLInputConnection_nativeSetComposingText(
                                     JNIEnv* env, jclass cls,
                                     jstring text, jint newCursorPosition)
 {
@@ -412,7 +412,7 @@ JNIEXPORT void JNICALL Java_io_humanteq_test_package_SDLInputConnection_nativeSe
     (*env)->ReleaseStringUTFChars(env, text, utftext);
 }
 
-JNIEXPORT jstring JNICALL Java_io_humanteq_test_package_SDLActivity_nativeGetHint(JNIEnv* env, jclass cls, jstring name) {
+JNIEXPORT jstring JNICALL Java_io_humanteq_test_1package_SDLActivity_nativeGetHint(JNIEnv* env, jclass cls, jstring name) {
     const char *utfname = (*env)->GetStringUTFChars(env, name, NULL);
     const char *hint = SDL_GetHint(utfname);
 

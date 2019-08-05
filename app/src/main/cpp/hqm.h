@@ -1,7 +1,3 @@
-//
-// Created by back on 31.07.19.
-//
-
 #ifndef SDL2_HQM_TEST_HQM_H
 #define SDL2_HQM_TEST_HQM_H
 

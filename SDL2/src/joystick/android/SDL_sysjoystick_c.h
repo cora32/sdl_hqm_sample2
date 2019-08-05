@@ -45,7 +45,7 @@ typedef struct SDL_joylist_item
     struct SDL_joylist_item *next;
 } SDL_joylist_item;
 
-typedef SDL_joylist_item joystick_hwdata;
+//typedef SDL_joylist_item joystick_hwdata;
 
 #endif /* SDL_JOYSTICK_ANDROID */
 
