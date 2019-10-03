@@ -58,7 +58,6 @@ void hqm_init(char *key_string, int enable_debug, int enable_background_tasks) {
 void hqm_collect_apps() {
     JNIEnv *env = (JNIEnv *) SDL_AndroidGetJNIEnv();
     jobject activity = (jobject) SDL_AndroidGetActivity();
-    jclass activity_class = env->GetObjectClass(activity);
 
     jclass hqsdk_class = env->FindClass(HQM_CLASS);
 
@@ -68,7 +67,6 @@ void hqm_collect_apps() {
     env->CallStaticVoidMethod(hqsdk_class, collect_apps_method, activity);
 
     env->DeleteLocalRef(activity);
-    env->DeleteLocalRef(activity_class);
     env->DeleteLocalRef(hqsdk_class);
 }
 
@@ -120,12 +118,13 @@ UserGroupData hqm_get_user_groups() {
     jclass hqsdk_class = env->FindClass(HQM_CLASS);
     jclass list_class = env->FindClass(LIST_CLASS);
     jclass gr_class = env->FindClass(GROUP_RESPONSE_CLASS);
+    jobject activity = (jobject) SDL_AndroidGetActivity();
 
     // get user groups
     jmethodID user_groups_method = env->GetStaticMethodID(hqsdk_class,
                                                              "getUserGroupsSync",
-                                                             "()Ljava/util/List;");
-    jobject groups = env->CallStaticObjectMethod(hqsdk_class, user_groups_method);
+                                                             "(Landroid/content/Context;)Ljava/util/List;");
+    jobject groups = env->CallStaticObjectMethod(hqsdk_class, user_groups_method, activity);
 
     if(groups == NULL) return (struct _UserGroupData) {.length = 0, .userGroups = NULL};
 
@@ -170,6 +169,7 @@ UserGroupData hqm_get_user_groups() {
         }
     }
 
+    env->DeleteLocalRef(activity);
     env->DeleteLocalRef(hqsdk_class);
     env->DeleteLocalRef(list_class);
     env->DeleteLocalRef(gr_class);
